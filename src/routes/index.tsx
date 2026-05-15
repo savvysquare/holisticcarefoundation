@@ -61,31 +61,33 @@ function Index() {
         </header>
 
         {/* Hero */}
-        <section className="mx-auto max-w-[1180px] grid grid-cols-1 gap-10 px-8 py-20 md:grid-cols-[1.15fr_1fr] md:gap-12">
-          <div>
-            <p className="font-mono text-[12px] uppercase tracking-wider text-white/60">
-              Empowering Lives
-            </p>
-            <h1 className="mt-4 text-[42px] font-semibold leading-[1.1] tracking-tight text-white md:text-[52px]">
-              How Holistic Care Foundation has touched 2,000+ lives across 8 countries in 10 years
-            </h1>
-            <p className="mt-6 max-w-md text-[15px] text-white/70">
-              Healthcare, education, poverty alleviation, and environmental sustainability —
-              an integrated approach to empowering communities.
-            </p>
-            <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
-              <StatCard tone="blue" big="2,000+" small="lives touched" sub="across healthcare, education and outreach programs" />
-              <StatCard tone="green" big="8" small="countries" sub="active foundation programs and global partners" />
-              <StatCard tone="blue" big="20+" small="volunteers" sub="powering on-the-ground delivery in local communities" />
-              <StatCard tone="green" big="10" small="years of impact" sub="continuous community-based work since 2015" />
+        <section className="mx-auto max-w-[1180px] px-8 py-20">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.15fr_1fr] md:gap-12">
+            <div>
+              <p className="font-mono text-[12px] uppercase tracking-wider text-white/60">
+                Empowering Lives
+              </p>
+              <h1 className="mt-4 text-[42px] font-semibold leading-[1.1] tracking-tight text-white md:text-[52px]">
+                How Holistic Care Foundation has touched 2,000+ lives across 8 countries in 10 years
+              </h1>
+              <p className="mt-6 max-w-md text-[15px] text-white/70">
+                Healthcare, education, poverty alleviation, and environmental sustainability —
+                an integrated approach to empowering communities.
+              </p>
+            </div>
+            <div className="relative">
+              <img
+                src={IMG.hero}
+                alt="Holistic Care Foundation outreach"
+                className="aspect-[4/3] w-full rounded-md object-cover shadow-2xl"
+              />
             </div>
           </div>
-          <div className="relative">
-            <img
-              src={IMG.hero}
-              alt="Holistic Care Foundation outreach"
-              className="aspect-[4/3] w-full rounded-md object-cover shadow-2xl"
-            />
+          <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+            <StatCard tone="blue" big="2,000+" small="lives touched" sub="across healthcare, education and outreach programs" />
+            <StatCard tone="green" big="8" small="countries" sub="active foundation programs and global partners" />
+            <StatCard tone="blue" big="20+" small="volunteers" sub="powering on-the-ground delivery in local communities" />
+            <StatCard tone="green" big="10" small="years of impact" sub="continuous community-based work since 2015" />
           </div>
         </section>
 
