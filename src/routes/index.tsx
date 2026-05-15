@@ -1,7 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo_optimized.png";
 import heroOptimized from "@/assets/hero_optimized.jpg";
+import about1 from "@/assets/02_optimized.jpg";
+import about2 from "@/assets/04_optimized.jpg";
+import about3 from "@/assets/05_optimized.jpg";
+import g1 from "@/assets/06_optimized.jpg";
+import g2 from "@/assets/07_optimized.jpg";
+import g3 from "@/assets/08_optimized.jpg";
+import g4 from "@/assets/09_optimized.jpg";
+import g5 from "@/assets/10_optimized.jpg";
+
 
 
 export const Route = createFileRoute("/")({
@@ -20,14 +29,14 @@ export const Route = createFileRoute("/")({
 
 const IMG = {
   hero: heroOptimized,
-  about1: "https://holisticcarefoundation.com/assets/img/about/02.jpg",
-  about2: "https://holisticcarefoundation.com/assets/img/about/04.jpg",
-  about3: "https://holisticcarefoundation.com/assets/img/about/05.jpg",
-  g1: "https://holisticcarefoundation.com/assets/img/gallery/06.jpg",
-  g2: "https://holisticcarefoundation.com/assets/img/gallery/07.jpg",
-  g3: "https://holisticcarefoundation.com/assets/img/gallery/08.jpg",
-  g4: "https://holisticcarefoundation.com/assets/img/gallery/09.jpg",
-  g5: "https://holisticcarefoundation.com/assets/img/gallery/10.jpg",
+  about1: about1,
+  about2: about2,
+  about3: about3,
+  g1: g1,
+  g2: g2,
+  g3: g3,
+  g4: g4,
+  g5: g5,
 };
 
 function Index() {
