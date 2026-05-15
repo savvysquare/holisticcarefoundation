@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import logo from "@/assets/logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,46 +30,49 @@ const IMG = {
 function Index() {
   return (
     <div className="min-h-screen bg-[var(--brand-cream)] text-[var(--brand-navy-deep)] font-sans antialiased">
-      {/* Top nav */}
-      <header className="border-b border-dashed border-[var(--brand-rule)]">
-        <div className="mx-auto flex max-w-[1180px] items-center justify-between px-6 py-4">
-          <Link to="/" className="flex items-center gap-2">
-            <span className="inline-block h-5 w-5 rounded-full bg-[var(--brand-red)]" />
-            <span className="text-[15px] font-semibold tracking-tight">
-              Holistic Care Foundation
-            </span>
-          </Link>
-          <nav className="hidden items-center gap-7 text-[14px] text-[var(--brand-navy)] md:flex">
-            <a href="#about" className="hover:text-[var(--brand-red)]">About</a>
-            <a href="#focus" className="hover:text-[var(--brand-red)]">Focus Areas</a>
-            <a href="#gallery" className="hover:text-[var(--brand-red)]">Gallery</a>
-            <a href="#contact" className="hover:text-[var(--brand-red)]">Contact</a>
-          </nav>
-          <div className="flex items-center gap-3">
-            <a href="#volunteer" className="hidden text-[14px] text-[var(--brand-navy)] hover:text-[var(--brand-red)] md:inline">
-              Volunteer
-            </a>
-            <a
-              href="#donate"
-              className="rounded-full bg-[var(--brand-red)] px-4 py-2 text-[13px] font-medium text-white hover:opacity-90"
-            >
-              Donate
-            </a>
+      {/* Top nav + Hero (full-coloured navy band) */}
+      <div className="bg-[var(--brand-navy)] text-white">
+        <header className="border-b border-white/10">
+          <div className="mx-auto flex max-w-[1180px] items-center justify-between px-6 py-4">
+            <Link to="/" className="flex items-center gap-2">
+              <img src={logo} alt="Holistic Care Foundation" className="h-8 w-auto" />
+              <span className="text-[15px] font-semibold tracking-tight text-white">
+                Holistic Care Foundation
+              </span>
+            </Link>
+            <nav className="hidden items-center gap-7 text-[14px] text-white/80 md:flex">
+              <a href="#about" className="hover:text-[var(--brand-red)]">About</a>
+              <a href="#focus" className="hover:text-[var(--brand-red)]">Focus Areas</a>
+              <a href="#gallery" className="hover:text-[var(--brand-red)]">Gallery</a>
+              <a href="#contact" className="hover:text-[var(--brand-red)]">Contact</a>
+            </nav>
+            <div className="flex items-center gap-3">
+              <a href="#volunteer" className="hidden text-[14px] text-white/80 hover:text-[var(--brand-red)] md:inline">
+                Volunteer
+              </a>
+              <a
+                href="#donate"
+                className="rounded-full bg-[var(--brand-red)] px-4 py-2 text-[13px] font-medium text-white hover:opacity-90"
+              >
+                Donate
+              </a>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
 
-      {/* Outer dotted grid container */}
-      <div className="mx-auto max-w-[1180px] border-x border-dashed border-[var(--brand-rule)]">
         {/* Hero */}
-        <section className="grid grid-cols-1 gap-10 px-8 py-16 md:grid-cols-[1.15fr_1fr] md:gap-12">
+        <section className="mx-auto max-w-[1180px] grid grid-cols-1 gap-10 px-8 py-20 md:grid-cols-[1.15fr_1fr] md:gap-12">
           <div>
-            <p className="font-mono text-[12px] uppercase tracking-wider text-[var(--brand-navy)]/60">
+            <p className="font-mono text-[12px] uppercase tracking-wider text-white/60">
               Empowering Lives
             </p>
-            <h1 className="mt-4 text-[42px] font-semibold leading-[1.1] tracking-tight md:text-[52px]">
+            <h1 className="mt-4 text-[42px] font-semibold leading-[1.1] tracking-tight text-white md:text-[52px]">
               How Holistic Care Foundation has touched 2,000+ lives across 8 countries in 10 years
             </h1>
+            <p className="mt-6 max-w-md text-[15px] text-white/70">
+              Healthcare, education, poverty alleviation, and environmental sustainability —
+              an integrated approach to empowering communities.
+            </p>
             <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
               <StatCard tone="blue" big="2,000+" small="lives touched" sub="across healthcare, education and outreach programs" />
               <StatCard tone="green" big="8" small="countries" sub="active foundation programs and global partners" />
@@ -78,12 +82,23 @@ function Index() {
             <img
               src={IMG.hero}
               alt="Holistic Care Foundation outreach"
-              className="aspect-[4/3] w-full rounded-md object-cover shadow-sm"
+              className="aspect-[4/3] w-full rounded-md object-cover shadow-2xl"
             />
           </div>
         </section>
 
-        <Divider />
+        <div className="bg-[var(--brand-red)]">
+          <div className="mx-auto flex max-w-[1180px] items-center justify-between px-8 py-4 text-[14px] text-white">
+            <span>Empowering lives across 8 countries</span>
+            <a href="#donate" className="rounded-full bg-white/15 px-4 py-1.5 text-[13px] hover:bg-white/25">
+              Get involved
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Outer dotted grid container */}
+      <div className="mx-auto max-w-[1180px] border-x border-dashed border-[var(--brand-rule)]">
 
         {/* Body grid: sticky info card + content */}
         <section className="grid grid-cols-1 gap-10 px-8 py-14 md:grid-cols-[300px_1fr] md:gap-14">
@@ -91,7 +106,7 @@ function Index() {
           <aside className="md:sticky md:top-8 md:self-start">
             <div className="rounded-md border border-[var(--brand-rule)] bg-white p-6 shadow-sm">
               <div className="flex items-center gap-2">
-                <span className="inline-block h-4 w-4 rounded-full bg-[var(--brand-red)]" />
+                <img src={logo} alt="" className="h-6 w-auto" />
                 <span className="text-[13px] font-semibold tracking-tight">
                   Holistic Care Foundation
                 </span>
@@ -310,7 +325,7 @@ function Index() {
         <div className="mx-auto grid max-w-[1180px] grid-cols-2 gap-8 px-8 py-14 md:grid-cols-4">
           <div className="col-span-2">
             <div className="flex items-center gap-2">
-              <span className="inline-block h-5 w-5 rounded-full bg-[var(--brand-red)]" />
+              <img src={logo} alt="" className="h-8 w-auto" />
               <span className="text-[15px] font-semibold">Holistic Care Foundation</span>
             </div>
             <p className="mt-4 max-w-sm text-[13px] text-white/60">
