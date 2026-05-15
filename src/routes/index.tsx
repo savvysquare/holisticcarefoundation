@@ -422,8 +422,8 @@ function Index() {
           />
         </div>
         <div className="border-t border-white/10">
-          <div className="mx-auto flex max-w-[1180px] flex-col items-center justify-between gap-3 px-8 py-5 text-[12px] text-white/50 md:flex-row">
-            <span className="text-center md:text-left">
+          <div className="mx-auto flex max-w-[1180px] flex-col items-start justify-between gap-3 px-8 py-5 text-[12px] text-white/50 md:flex-row md:items-center">
+            <span>
               © {new Date().getFullYear()} Holistic Care Foundation. All rights reserved.
             </span>
             <span>Empowering Lives</span>
