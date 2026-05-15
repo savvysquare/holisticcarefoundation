@@ -144,9 +144,13 @@ function Index() {
         </section>
 
         <div className="bg-[var(--brand-red)]">
-          <div className="mx-auto flex max-w-[1180px] items-center justify-between px-8 py-4 text-[14px] text-white">
+          <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-4 px-8 py-4 text-[15px] font-semibold text-white">
             <span>Empowering lives across 8 countries</span>
-            <a href="#volunteer" id="volunteer" className="rounded-full bg-white/15 px-4 py-1.5 text-[13px] hover:bg-white/25">
+            <a
+              href="#volunteer"
+              id="volunteer"
+              className="whitespace-nowrap rounded-full bg-white/15 px-4 py-1.5 text-[13px] font-medium hover:bg-white/25"
+            >
               Get involved
             </a>
           </div>
@@ -418,8 +422,10 @@ function Index() {
           />
         </div>
         <div className="border-t border-white/10">
-          <div className="mx-auto flex max-w-[1180px] items-center justify-between px-8 py-5 text-[12px] text-white/50">
-            <span>© {new Date().getFullYear()} Holistic Care Foundation. All rights reserved.</span>
+          <div className="mx-auto flex max-w-[1180px] flex-col items-center justify-between gap-3 px-8 py-5 text-[12px] text-white/50 md:flex-row">
+            <span className="text-center md:text-left">
+              © {new Date().getFullYear()} Holistic Care Foundation. All rights reserved.
+            </span>
             <span>Empowering Lives</span>
           </div>
         </div>
