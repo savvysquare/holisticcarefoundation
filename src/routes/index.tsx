@@ -73,9 +73,11 @@ function Index() {
               Healthcare, education, poverty alleviation, and environmental sustainability —
               an integrated approach to empowering communities.
             </p>
-            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
               <StatCard tone="blue" big="2,000+" small="lives touched" sub="across healthcare, education and outreach programs" />
               <StatCard tone="green" big="8" small="countries" sub="active foundation programs and global partners" />
+              <StatCard tone="blue" big="20+" small="volunteers" sub="powering on-the-ground delivery in local communities" />
+              <StatCard tone="green" big="10" small="years of impact" sub="continuous community-based work since 2015" />
             </div>
           </div>
           <div className="relative">
