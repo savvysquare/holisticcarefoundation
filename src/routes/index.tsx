@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import logo from "@/assets/logo.png";
 
 export const Route = createFileRoute("/")({
@@ -28,11 +29,15 @@ const IMG = {
 };
 
 function Index() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   return (
     <div className="min-h-screen bg-[var(--brand-cream)] text-[var(--brand-navy-deep)] font-sans antialiased">
       {/* Top nav + Hero (full-coloured navy band) */}
       <div className="bg-[var(--brand-navy)] text-white">
-        <header className="border-b border-white/10">
+        <header className="relative border-b border-white/10">
           <div className="mx-auto flex max-w-[1180px] items-center justify-between px-6 py-4">
             <Link to="/" className="flex items-center gap-2">
               <img src={logo} alt="Holistic Care Foundation" className="h-8 w-auto" />
@@ -40,24 +45,60 @@ function Index() {
                 Holistic Care Foundation
               </span>
             </Link>
+
+            {/* Desktop Nav */}
             <nav className="hidden items-center gap-7 text-[14px] text-white/80 md:flex">
               <a href="#about" className="hover:text-[var(--brand-red)]">About</a>
               <a href="#focus" className="hover:text-[var(--brand-red)]">Focus Areas</a>
               <a href="#gallery" className="hover:text-[var(--brand-red)]">Gallery</a>
               <a href="#contact" className="hover:text-[var(--brand-red)]">Contact</a>
             </nav>
+
             <div className="flex items-center gap-3">
               <a href="#volunteer" className="hidden text-[14px] text-white/80 hover:text-[var(--brand-red)] md:inline">
                 Volunteer
               </a>
               <a
                 href="#donate"
-                className="rounded-full bg-[var(--brand-red)] px-4 py-2 text-[13px] font-medium text-white hover:opacity-90"
+                className="hidden rounded-full bg-[var(--brand-red)] px-4 py-2 text-[13px] font-medium text-white hover:opacity-90 md:block"
               >
                 Donate
               </a>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={toggleMenu}
+                className="flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white md:hidden"
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                )}
+              </button>
             </div>
           </div>
+
+          {/* Mobile Nav Overlay */}
+          {isMenuOpen && (
+            <div className="absolute inset-x-0 top-full z-50 border-b border-white/10 bg-[var(--brand-navy)] p-6 shadow-xl md:hidden">
+              <nav className="flex flex-col gap-5 text-[16px] text-white/80">
+                <a href="#about" onClick={toggleMenu} className="hover:text-[var(--brand-red)]">About</a>
+                <a href="#focus" onClick={toggleMenu} className="hover:text-[var(--brand-red)]">Focus Areas</a>
+                <a href="#gallery" onClick={toggleMenu} className="hover:text-[var(--brand-red)]">Gallery</a>
+                <a href="#contact" onClick={toggleMenu} className="hover:text-[var(--brand-red)]">Contact</a>
+                <a href="#volunteer" onClick={toggleMenu} className="hover:text-[var(--brand-red)]">Volunteer</a>
+                <a
+                  href="#donate"
+                  onClick={toggleMenu}
+                  className="mt-2 rounded-md bg-[var(--brand-red)] py-3 text-center text-[15px] font-medium text-white"
+                >
+                  Donate Now
+                </a>
+              </nav>
+            </div>
+          )}
         </header>
 
         {/* Hero */}
@@ -94,7 +135,7 @@ function Index() {
         <div className="bg-[var(--brand-red)]">
           <div className="mx-auto flex max-w-[1180px] items-center justify-between px-8 py-4 text-[14px] text-white">
             <span>Empowering lives across 8 countries</span>
-            <a href="#donate" className="rounded-full bg-white/15 px-4 py-1.5 text-[13px] hover:bg-white/25">
+            <a href="#volunteer" id="volunteer" className="rounded-full bg-white/15 px-4 py-1.5 text-[13px] hover:bg-white/25">
               Get involved
             </a>
           </div>
@@ -105,7 +146,7 @@ function Index() {
       <div className="mx-auto max-w-[1180px] border-x border-dashed border-[var(--brand-rule)]">
 
         {/* Body grid: sticky info card + content */}
-        <section className="grid grid-cols-1 gap-10 px-8 py-14 md:grid-cols-[300px_1fr] md:gap-14">
+        <section id="about" className="grid grid-cols-1 gap-10 px-8 py-14 md:grid-cols-[300px_1fr] md:gap-14">
           {/* Sticky info card */}
           <aside className="md:sticky md:top-8 md:self-start">
             <div className="rounded-md border border-[var(--brand-rule)] bg-white p-6 shadow-sm">
@@ -174,6 +215,7 @@ function Index() {
 
             {/* Solution / Focus Areas */}
             <Section
+              id="focus"
               label="Solution"
               title="An integrated approach across four interconnected focus areas"
             >
@@ -203,8 +245,8 @@ function Index() {
               </div>
 
               <div className="mt-8 grid grid-cols-2 gap-4">
-                <img src={IMG.about1} alt="Healthcare outreach" className="aspect-[4/3] w-full rounded-md object-cover" />
-                <img src={IMG.about2} alt="Education program" className="aspect-[4/3] w-full rounded-md object-cover" />
+                <img src={IMG.about1} alt="Healthcare outreach" loading="lazy" decoding="async" className="aspect-[4/3] w-full rounded-md object-cover" />
+                <img src={IMG.about2} alt="Education program" loading="lazy" decoding="async" className="aspect-[4/3] w-full rounded-md object-cover" />
               </div>
 
               <Callout>
@@ -269,6 +311,8 @@ function Index() {
                 key={src}
                 src={src}
                 alt="Foundation activity"
+                loading="lazy"
+                decoding="async"
                 className="aspect-square w-full rounded-md object-cover"
               />
             ))}
@@ -309,6 +353,8 @@ function Index() {
             <img
               src={IMG.about3}
               alt="Foundation impact"
+              loading="lazy"
+              decoding="async"
               className="aspect-[4/3] w-full rounded-md object-cover shadow-2xl"
             />
           </div>
@@ -325,7 +371,7 @@ function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[var(--brand-navy)] text-white">
+      <footer id="contact" className="bg-[var(--brand-navy)] text-white">
         <div className="mx-auto grid max-w-[1180px] grid-cols-2 gap-8 px-8 py-14 md:grid-cols-4">
           <div className="col-span-2">
             <div className="flex items-center gap-2">
@@ -416,16 +462,18 @@ function Divider() {
 }
 
 function Section({
+  id,
   label,
   title,
   children,
 }: {
+  id?: string;
   label: string;
   title: string;
   children: React.ReactNode;
 }) {
   return (
-    <div className="mt-14">
+    <div className="mt-14" id={id}>
       <p className="font-mono text-[12px] uppercase tracking-wider text-[var(--brand-navy)]/60">
         {label}
       </p>
