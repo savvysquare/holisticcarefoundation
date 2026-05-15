@@ -325,7 +325,7 @@ function Index() {
         <div className="mx-auto grid max-w-[1180px] grid-cols-2 gap-8 px-8 py-14 md:grid-cols-4">
           <div className="col-span-2">
             <div className="flex items-center gap-2">
-              <span className="inline-block h-5 w-5 rounded-full bg-[var(--brand-red)]" />
+              <img src={logo} alt="" className="h-8 w-auto" />
               <span className="text-[15px] font-semibold">Holistic Care Foundation</span>
             </div>
             <p className="mt-4 max-w-sm text-[13px] text-white/60">
