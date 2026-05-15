@@ -106,7 +106,7 @@ function Index() {
           <aside className="md:sticky md:top-8 md:self-start">
             <div className="rounded-md border border-[var(--brand-rule)] bg-white p-6 shadow-sm">
               <div className="flex items-center gap-2">
-                <span className="inline-block h-4 w-4 rounded-full bg-[var(--brand-red)]" />
+                <img src={logo} alt="" className="h-6 w-auto" />
                 <span className="text-[13px] font-semibold tracking-tight">
                   Holistic Care Foundation
                 </span>
