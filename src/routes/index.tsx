@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import logo from "@/assets/logo.png";
+import heroOptimized from "@/assets/hero_optimized.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,7 +19,7 @@ export const Route = createFileRoute("/")({
 });
 
 const IMG = {
-  hero: "https://holisticcarefoundation.com/assets/img/slider/slide3.jpg",
+  hero: heroOptimized,
   about1: "https://holisticcarefoundation.com/assets/img/about/02.jpg",
   about2: "https://holisticcarefoundation.com/assets/img/about/04.jpg",
   about3: "https://holisticcarefoundation.com/assets/img/about/05.jpg",
