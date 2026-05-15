@@ -195,12 +195,10 @@ function Index() {
                 opportunity to serve — and a holistic approach to care helps us do just that.”
               </p>
               <div className="mt-6 flex items-center gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-full bg-[var(--brand-navy)] text-[12px] font-semibold text-white">
-                  HC
-                </div>
+                <img src={logo} alt="" className="h-10 w-auto" />
                 <div className="text-[13px]">
                   <div className="font-semibold">Holistic Care Foundation</div>
-                  <div className="text-[var(--brand-navy)]/60">Founder & Board — Empowering Lives</div>
+                  <div className="text-[var(--brand-navy)]/60">Empowering Lives</div>
                 </div>
               </div>
             </div>
